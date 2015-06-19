@@ -179,9 +179,10 @@ figure {
 
   .defqon-chat-iframe {
     height: 50vh;
+    overflow: auto;
 
     iframe {
-      height: 90%;
+      height: 100%;
     }
   }
 
