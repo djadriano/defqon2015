@@ -1,0 +1,17 @@
+<% include ../partials/html_head %>
+
+  <main class="main" ytio-desktop>
+    <h1>Youtube Socket.io</h1>
+    <p>Acesse: <a href="<%= code_url %>/mobile" target="_blank"><%= code_url %>/mobile</a> e informe o código:</p>
+    <p>
+      <h2 style="text-transform: uppercase;" class="generated-code">{{ generated_code }}</h2>
+    </p>
+    <div class="player" ng-hide="!video.show" ytio-player>
+      <p>video</p>
+      <p>
+        <a ng-click="playVideo()">play video</a> <a ng-click="pauseVideo()">pause video</a>
+      </p>
+    </div>
+  </main>
+
+<% include ../partials/html_footer %>

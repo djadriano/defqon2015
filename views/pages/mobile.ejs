@@ -1,0 +1,36 @@
+<% include ../partials/html_head %>
+
+  <header class="defqon-header">
+    <img src="/images/defqon.svg" alt="" class="defqon-logo">
+    <nav class="defqon-header-nav">
+      <ul class="defqon-header-links reset-list">
+        <li>
+          <a href="#">Line-Up</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="defqon-main" ng-controller="defqon.controller">
+    <ul class="defqon-feed">
+      <li ng-repeat="item in teste | orderBy:'-created_time'">
+        <div class="defqon-feed-image">
+          <div class="defqon-feed-image-desc">
+            <img ng-src="{{item.user.profile_picture}}" alt="">
+            {{item.user.username}}
+          </div>
+          <a href="{{item.link}}" target="_blank"><img ng-src="{{item.images.standard_resolution.url}}" class="defqon-feed-image-post"></a>
+          <p class="defqon-feed-image-text">{{item.caption.text}}</p>
+        </div>
+      </li>
+    </ul>
+    <div class="defqon-chat">
+      <iframe src="http://tlk.io/defqon2015" width="100%" height="100%" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+  </div>
+
+  <div class="defqon-notification-new-photo" ng-class="{'show': thereAreNotifications}" notification-new-photo>
+    there are new photos <span class="defqon-notification-counter">{{new_photos_counter}}</span>
+  </div>
+
+<% include ../partials/html_footer %>
