@@ -1,7 +1,5 @@
 // dependencies
 
-// var server = require('http').createServer(app).listen(process.env.PORT || 8080);
-
 var express   = require( 'express' );
 var app       = express();
 var http      = require( 'http' ).Server( app );
