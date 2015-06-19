@@ -171,7 +171,15 @@ figure {
 }
 .defqon-chat iframe {
   width: 100%;
-  height: 100%;
+}
+.defqon-chat .defqon-chat-iframe {
+  height: 50vh;
+}
+.defqon-chat .defqon-livestream-player {
+  height: 50vh;
+}
+.defqon-chat .defqon-livestream-player iframe {
+  height: 80%;
 }
 @media screen and (min-width: 48rem) {
   .defqon-chat {
