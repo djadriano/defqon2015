@@ -179,6 +179,10 @@ figure {
 
   .defqon-chat-iframe {
     height: 50vh;
+
+    iframe {
+      height: 90%;
+    }
   }
 
   .defqon-livestream-player {
