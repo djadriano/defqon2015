@@ -248,14 +248,19 @@ figure {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
-  background: #cc152a;
+  background: #3a744a;
   position: fixed;
   width: 100%;
   left: 0;
   top: 0;
   z-index: 99;
-  height: 10vh;
+  height: 15vh;
   padding-left: 1.25rem;
+}
+
+.defqon-phb-logo {
+  margin-right: 1.25rem;
+  border: 0;
 }
 
 .defqon-header-nav {
@@ -293,6 +298,7 @@ figure {
 }
 .defqon-livestream-player-chat .defqon-livestream-player iframe {
   height: 100%;
+  display: none;
 }
 .defqon-livestream-player-chat .defqon-livestream-player iframe + a {
   display: none !important;
@@ -438,5 +444,6 @@ figure {
 @media screen and (min-width: 48rem) {
   .defqon-chat {
     display: block;
+    display: none;
   }
 }

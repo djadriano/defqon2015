@@ -41,14 +41,20 @@ figure {
 .defqon-header {
   @include display-flex;
   @include align-items(center);
-  background: #cc152a;
+  // background: #cc152a;
+  background: #3a744a;
   position: fixed;
   width: 100%;
   left: 0;
   top: 0;
   z-index: 99;
-  height: 10vh;
+  height: 15vh;
   padding-left: rem(20px);
+}
+
+.defqon-phb-logo {
+  margin-right: rem(20px);
+  border: 0;
 }
 
 .defqon-header-nav {
@@ -86,6 +92,7 @@ figure {
 
     iframe {
       height: 100%;
+      display: none;
     }
 
     iframe + a {
@@ -226,5 +233,6 @@ figure {
 
   @media screen and (min-width: rem(768px)) {
     display: block;
+    display: none;
   }
 }
