@@ -92,7 +92,6 @@ figure {
 
     iframe {
       height: 100%;
-      display: none;
     }
 
     iframe + a {
@@ -233,6 +232,5 @@ figure {
 
   @media screen and (min-width: rem(768px)) {
     display: block;
-    display: none;
   }
 }

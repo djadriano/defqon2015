@@ -298,7 +298,6 @@ figure {
 }
 .defqon-livestream-player-chat .defqon-livestream-player iframe {
   height: 100%;
-  display: none;
 }
 .defqon-livestream-player-chat .defqon-livestream-player iframe + a {
   display: none !important;
@@ -444,6 +443,5 @@ figure {
 @media screen and (min-width: 48rem) {
   .defqon-chat {
     display: block;
-    display: none;
   }
 }
