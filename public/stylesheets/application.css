@@ -33,6 +33,12 @@ figure {
 }
 
 .defqon-header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   background: #cc152a;
   position: fixed;
   width: 100%;
@@ -40,9 +46,6 @@ figure {
   top: 0;
   z-index: 99;
   height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .defqon-header-nav {
@@ -86,9 +89,11 @@ figure {
 }
 @media screen and (min-width: 48rem) {
   .defqon-livestream-player-chat {
-    padding: 2%;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: row;
     flex-direction: row;
+    padding: 2%;
     height: 70vh;
   }
 }
@@ -105,8 +110,11 @@ figure {
 }
 
 .defqon-instagram-feed {
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
   flex-direction: row;
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 .defqon-instagram-feed li {
@@ -133,9 +141,12 @@ figure {
 }
 
 .defqon-instagram-feed-image-desc {
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-flex-direction: row;
   flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
   padding: 1.25rem;
   font-size: 1rem;
   color: #cc152a;

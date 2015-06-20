@@ -38,6 +38,9 @@ figure {
 }
 
 .defqon-header {
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
   background: #cc152a;
   position: fixed;
   width: 100%;
@@ -45,13 +48,6 @@ figure {
   top: 0;
   z-index: 99;
   height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .defqon-logo {
-    // width: rem(70px);
-  }
 }
 
 .defqon-header-nav {
@@ -97,9 +93,9 @@ figure {
   }
 
   @media screen and (min-width: rem(768px)) {
+    @include display-flex;
+    @include flex-direction(row);
     padding: 2%;
-    display: flex;
-    flex-direction: row;
     height: 70vh;
   }
 }
@@ -116,9 +112,9 @@ figure {
 
 .defqon-instagram-feed {
   @extend .reset-list;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  @include display-flex;
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
 
   li {
     flex: 0 0 100%;
@@ -143,16 +139,12 @@ figure {
 
 .defqon-instagram-feed-image {
   position: relative;
-
-  @media screen and (min-width: rem(768px)) {
-    // padding: 2%;
-  }
 }
 
 .defqon-instagram-feed-image-desc {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+  @include display-flex;
+  @include flex-direction(row);
+  @include align-items(center);
   padding: rem(20px);
   font-size: rem(16px);
   color: #cc152a;
