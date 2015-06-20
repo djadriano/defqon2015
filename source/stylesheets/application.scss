@@ -1,4 +1,5 @@
 @import 'compass';
+@import 'vendors/lightbox';
 
 @function rem($pixels: 0, $base: 16px) {
   $rem-size: $pixels / $base;
@@ -40,7 +41,6 @@ figure {
 .defqon-header {
   @include display-flex;
   @include align-items(center);
-  @include justify-content(center);
   background: #cc152a;
   position: fixed;
   width: 100%;
@@ -48,6 +48,7 @@ figure {
   top: 0;
   z-index: 99;
   height: 10vh;
+  padding-left: rem(20px);
 }
 
 .defqon-header-nav {
