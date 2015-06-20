@@ -386,6 +386,7 @@ figure {
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   color: #999;
+  overflow: hidden;
 }
 
 .defqon-notification-new-photo {
