@@ -1,13 +1,13 @@
 {
   "checksum": {
-    "previous": "a7dbfaea743a090e6a1c6b3d50ce34de9607b4264300bd7608f3bdc01147a057",
-    "current": "a7dbfaea743a090e6a1c6b3d50ce34de9607b4264300bd7608f3bdc01147a057"
+    "previous": "73a546480a830a139cc739e171237de2aedf358c1c9930aaa69ec0628d51ef8b",
+    "current": "73a546480a830a139cc739e171237de2aedf358c1c9930aaa69ec0628d51ef8b"
   },
   "fonts": [
-    "fontcustom/fontcustom_a7dbfaea743a090e6a1c6b3d50ce34de.ttf",
-    "fontcustom/fontcustom_a7dbfaea743a090e6a1c6b3d50ce34de.svg",
-    "fontcustom/fontcustom_a7dbfaea743a090e6a1c6b3d50ce34de.woff",
-    "fontcustom/fontcustom_a7dbfaea743a090e6a1c6b3d50ce34de.eot"
+    "fontcustom/fontcustom_73a546480a830a139cc739e171237de2.ttf",
+    "fontcustom/fontcustom_73a546480a830a139cc739e171237de2.svg",
+    "fontcustom/fontcustom_73a546480a830a139cc739e171237de2.woff",
+    "fontcustom/fontcustom_73a546480a830a139cc739e171237de2.eot"
   ],
   "glyphs": {
     "alarm": {
@@ -25,6 +25,10 @@
     "close": {
       "codepoint": 61699,
       "source": "icons/close.svg"
+    },
+    "insta": {
+      "codepoint": 61705,
+      "source": "icons/insta.svg"
     },
     "movie": {
       "codepoint": 61700,
