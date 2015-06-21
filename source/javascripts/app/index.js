@@ -18,7 +18,7 @@ module.exports = angular.module( 'defqon1.app', [] )
         .success(function(data){
 
           if( window.scrollY > 100 ) {
-            new_data_array.push( data.data[0] );
+            new_data_array.push(data.data[0]);
             $rootScope.thereAreNotifications = true;
             $rootScope.new_photos_counter = ($rootScope.new_photos_counter + 1);
           } else {
