@@ -1,53 +1,63 @@
 <% include ../partials/html_head %>
 
-  <header class="defqon-header">
-    <a href="https://www.facebook.com/ProjetoHardstyleBrasil" target="_blank" title="Projeto Hardstyle Brasil">
-      <img src="/images/logo_phb_small.png" alt="" class="defqon-phb-logo">
-    </a>
-    <img src="/images/defqon.svg" alt="" class="defqon-logo">
-    <nav class="defqon-header-nav">
-      <ul class="defqon-header-links reset-list">
-        <li>
-          <a href="http://www.defqon1.nl/wp-content/uploads/ARTISTS_SCHEMAV2.jpeg" data-lightbox="image-1" data-title="My caption">Line-Up</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+<header class="defqon-header">
+  <img src="/images/logo_phb_small.png" /> <img src="/images/defqon.svg" />
+  <nav class="defqon-header-nav">
+    <ul class="defqon-header-links reset-list">
+      <li>
+        <a href="http://www.defqon1.nl/wp-content/uploads/ARTISTS_SCHEMAV2.jpeg" data-lightbox="image-1" data-title="My caption">Line-Up</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-  <div class="defqon-main" ng-controller="defqon.controller">
-    <section class="defqon-livestream-player-chat">
-      <div class="defqon-livestream-player">
-        <iframe src="http://www.twitch.tv/beatport/embed" frameborder="0" scrolling="no" width="100%"></iframe><a href="http://www.twitch.tv/beatport?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from Beatport on www.twitch.tv</a>
-      </div>
-      <div class="defqon-chat">
-        <iframe src="http://tlk.io/defqon2015" class="" width="100%" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>
-      </div>
-    </section>
-    <section class="defqon-instagram-feed-container">
-      <h2 class="defqon-instagram-feed-title">
+<main class="defqon-content" ng-controller="defqon.controller">
+  <section class="defqon-player-chat">
+    <div class="defqon-player">
+      <iframe src="http://www.twitch.tv/beatport/embed" frameborder="0" scrolling="no" width="100%"></iframe>
+    </div>
+    <div class="defqon-chat">
+      <iframe src="http://tlk.io/defqon2015" class="" width="100%" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+  </section>
+  <section class="defqon-feed">
+    <div class="defqon-feed-title">
+      <h2>
         Realtime Feed
       </h2>
-      <ul class="defqon-instagram-feed">
-        <li ng-repeat="item in teste | orderBy:'-created_time'">
-          <div class="defqon-instagram-feed-image">
-            <div class="defqon-instagram-feed-image-desc">
-              <img ng-src="{{item.user.profile_picture}}" alt="">
-              {{item.user.username}}
-            </div>
-            <a href="{{item.link}}" target="_blank">
-              <img ng-src="{{item.images.standard_resolution.url}}" class="defqon-instagram-feed-image-post">
-              </a>
-            <p class="defqon-instagram-feed-image-text">
-              {{item.caption.text}}
-            </p>
+<!--       <nav class="defqon-feed-filter">
+        <dl class="reset-list">
+          <dt>Filtre por:</dt>
+          <dd>
+            <i class="icon-photo"></i> Fotos
+          </dd>
+          <dd><i class="icon-movie"></i> Vídeos</dd>
+        </dl>
+      </nav> -->
+    </div>
+    <ul class="defqon-feed-list reset-list">
+      <li ng-repeat="item in teste | orderBy:'-created_time'">
+        <div class="defqon-feed-list-from">
+          <img ng-src="{{item.user.profile_picture}}" alt="">
+          <b class="defqon-feed-list-from-name">{{item.user.username}}</b>
+        </div>
+        <div class="defqon-feed-list-photo" ng-class="{'is-video' : item.type == 'video'}">
+          <a href="{{item.link}}" target="_blank">
+            <figure>
+                <img ng-src="{{item.images.standard_resolution.url}}" class="defqon-instagram-feed-image-post">
+            </figure>
+          </a>
+          <div class="defqon-feed-list-photo-text">
+            {{item.caption.text}}
           </div>
-        </li>
-      </ul>
-    </section>
-  </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
 
-  <div class="defqon-notification-new-photo" ng-class="{'show': thereAreNotifications}" notification-new-photo>
-    there are new photos <span class="defqon-notification-counter">{{new_photos_counter}}</span>
-  </div>
+<div class="defqon-notification-new-photo" ng-class="{'show': thereAreNotifications}" notification-new-photo>
+  there are new photos <span class="defqon-notification-counter">{{new_photos_counter}}</span>
+</div>
 
 <% include ../partials/html_footer %>

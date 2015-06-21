@@ -14,7 +14,6 @@ module.exports = angular.module( 'defqon1.app', [] )
       var url = data.show + '&count=1';
       $http.jsonp(url)
           .success(function(data){
-            console.log('hasNewContents');
 
             if( window.scrollY > 100 ) {
               new_data_array.push(data.data[0]);
@@ -30,7 +29,6 @@ module.exports = angular.module( 'defqon1.app', [] )
     $scope.socket.on('getFeedFirstTime', function( data ) {
       $http.jsonp(data.show)
         .success(function(data){
-          console.log('getFeedFirstTime');
           $scope.teste = $scope.teste.concat( data.data );
         });
     });
