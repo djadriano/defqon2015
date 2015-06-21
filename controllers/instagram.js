@@ -32,15 +32,6 @@ module.exports = {
       id          : '#'
     });
 
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
-      object_id   : 'hardstyle',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
   },
 
   unsubscribe: function( id ) {
