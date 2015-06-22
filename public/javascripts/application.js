@@ -26438,17 +26438,26 @@ module.exports = angular.module( 'defqon1.app', [] )
 
     var new_data_array = [];
 
+    var last_update_id = 0;
+
     $scope.socket.on('hasNewContents', function( data ) {
       var url = data.show + '&count=1';
       $http.jsonp(url)
-        .success(function(data){
+        .success(function(data) {
 
-          if( window.scrollY > 100 ) {
-            new_data_array.push(data.data[0]);
-            $rootScope.thereAreNotifications = true;
-            $rootScope.new_photos_counter = ($rootScope.new_photos_counter + 1);
+          console.log('hasNewContents');
+
+          if( data.data[0].id != last_update_id ) {
+            if( window.scrollY > 100 ) {
+              new_data_array.push(data.data[0]);
+              $rootScope.thereAreNotifications = true;
+              $rootScope.new_photos_counter = ($rootScope.new_photos_counter + 1);
+            } else {
+              $scope.teste.push( data.data[0] );
+            }
+            last_update_id = data.data[0].id;
           } else {
-            $scope.teste.push( data.data[0] );
+            last_update_id = 0;
           }
 
         });
@@ -26457,7 +26466,6 @@ module.exports = angular.module( 'defqon1.app', [] )
     $scope.socket.on('getFeedFirstTime', function( data ) {
       $http.jsonp(data.show)
         .success(function(data){
-          console.log(data.data);
           $scope.teste = $scope.teste.concat( data.data );
         });
     });
