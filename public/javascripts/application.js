@@ -26427,68 +26427,107 @@ var minlengthDirective = function() {
 'use strict';
 
 module.exports = angular.module( 'defqon1.app', [] )
-  .controller('defqon.controller', ['$scope', '$rootScope', '$http', function( $scope, $rootScope, $http ) {
+  .service('defqonService', ['$http', function( $http ) {
+    return {
+      getNewPhotos: function( url ) {
+        return $http.jsonp( url );
+      }
+    };
+  }])
+  .controller('defqon.controller', ['$scope', '$rootScope', 'defqonService', function( $scope, $rootScope, defqonService ) {
 
-    $scope.socket = io();
-    $scope.teste  = [];
+    // --------------------------------------------------
+    // set variables
+    // --------------------------------------------------
 
-    var is_first = true
+    var $window         = $( window ),
+        arrCueNewPhotos = [],
+        lastUpdateId    = 0;
 
-    var $window = $(window);
+    // --------------------------------------------------
+    // set scope variables
+    // --------------------------------------------------
 
-    var new_data_array = [];
+    $scope.socket    = io();
+    $scope.arrPhotos = [];
 
-    var last_update_id = 0;
+    // --------------------------------------------------
+    // scope methods
+    // --------------------------------------------------
 
-    $scope.socket.on('hasNewContents', function( data ) {
-      var url = data.show + '&count=1';
-      $http.jsonp(url)
-        .success(function(data) {
+    $scope.showMessageNewPhotos = function() {
+      $rootScope.thereAreNotifications = true;
+      $rootScope.new_photos_counter    = ( $rootScope.new_photos_counter + 1 );
+    };
 
-          console.log('hasNewContents');
-
-          if( data.data[0].id != last_update_id ) {
-            if( window.scrollY > 100 ) {
-              new_data_array.push(data.data[0]);
-              $rootScope.thereAreNotifications = true;
-              $rootScope.new_photos_counter = ($rootScope.new_photos_counter + 1);
-            } else {
-              $scope.teste.push( data.data[0] );
-            }
-            last_update_id = data.data[0].id;
-          } else {
-            last_update_id = 0;
-          }
-
-        });
-    });
-
-    $scope.socket.on('getFeedFirstTime', function( data ) {
-      $http.jsonp(data.show)
-        .success(function(data){
-          $scope.teste = $scope.teste.concat( data.data );
-        });
-    });
-
-    var updateFeed = function() {
-      $scope.$apply(function() {
-        $scope.teste   = $scope.teste.concat( new_data_array );
-        new_data_array = [];
-      });
-
+    $scope.hideMessageNewPhotos = function() {
       $rootScope.$apply(function() {
         $rootScope.thereAreNotifications = false;
-        $rootScope.new_photos_counter = 0;
+        $rootScope.new_photos_counter    = 0;
       });
     };
 
+    // --------------------------------------------------
+    // socket methods
+    // --------------------------------------------------
 
-    $rootScope.$on( 'new_photo', function( evt, args ) {
-      window.scrollTo( 0, 0 );
-      updateFeed();
+    $scope.socket.on( 'hasNewContents', function( data ) {
+
+      var apiRequestUrl = data.show + '&count=1';
+
+      defqonService.getNewPhotos( apiRequestUrl ).then(function( response ) {
+
+        console.log('hasNewContents');
+
+        if( response.data.data[ 0 ].id != lastUpdateId ) {
+
+          if( window.scrollY > 100 ) {
+
+            arrCueNewPhotos.push( response.data.data[ 0 ] );
+
+            $scope.showMessageNewPhotos();
+
+          } else {
+            $scope.arrPhotos.push( response.data.data[ 0 ] );
+          }
+
+          lastUpdateId = response.data.data[ 0 ].id;
+
+        } else {
+          lastUpdateId = 0;
+        }
+
+      });
+
     });
 
-    var debounce = function(func, wait, immediate) {
+    $scope.socket.on('getFeedFirstTime', function( data ) {
+      defqonService.getNewPhotos( data.show ).then(function( response ) {
+        $scope.updatePhotos( response.data.data );
+      });
+    });
+
+    // --------------------------------------------------
+    // helper methods
+    // --------------------------------------------------
+
+    $scope.updatePhotos = function( photosData ) {
+      $scope.arrPhotos = $scope.arrPhotos.concat( photosData );
+    };
+
+    $scope.updateFeed = function() {
+
+      $scope.$apply(function() {
+        $scope.updatePhotos( arrCueNewPhotos );
+      });
+
+      $scope.hideMessageNewPhotos();
+
+      arrCueNewPhotos = [];
+
+    };
+
+    $scope.debounce = function(func, wait, immediate) {
       var timeout;
       return function() {
         var context = this, args = arguments;
@@ -26503,20 +26542,29 @@ module.exports = angular.module( 'defqon1.app', [] )
       };
     };
 
-    $window.on('scroll', debounce(function() {
-      if( $window.scrollTop() == 0 ) {
-        updateFeed();
+    // --------------------------------------------------
+    // events methods
+    // --------------------------------------------------
+
+    $rootScope.$on( 'clickToShowNewPhotos', function( evt, args ) {
+      window.scrollTo( 0, 0 );
+    });
+
+    $window.on('scroll', $scope.debounce(function() {
+
+      if( $window.scrollTop() == 0 && arrCueNewPhotos.length > 0 ) {
+        $scope.updateFeed();
       }
+
     }, 250));
 
   }])
   .directive('notificationNewPhoto', ['$rootScope', function( $rootScope ) {
     return {
       restrict: 'A',
-      link: function(scope, element, attrs, controller) {
-        element.on('click', function(evt) {
-          console.log('click');
-          $rootScope.$broadcast( 'new_photo' );
+      link    : function( scope, element, attrs ) {
+        element.on('click', function( evt ) {
+          $rootScope.$broadcast( 'clickToShowNewPhotos' );
         });
       }
     };

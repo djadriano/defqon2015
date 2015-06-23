@@ -36,7 +36,7 @@
       </nav> -->
     </div>
     <ul class="defqon-feed-list reset-list">
-      <li ng-repeat="item in teste | orderBy:'-created_time'">
+      <li ng-repeat="item in arrPhotos | orderBy:'-created_time'">
         <div class="defqon-feed-list-from">
           <img ng-src="{{item.user.profile_picture}}" alt="">
           <b class="defqon-feed-list-from-name">{{item.user.username}}</b>

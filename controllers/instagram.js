@@ -34,7 +34,7 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'qdance',
+      object_id   : 'hardstyle',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
