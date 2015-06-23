@@ -1,0 +1,51 @@
+@include font-face('defqon_icons',
+  font-files(
+      'defqon_icons.woff', woff,
+      'defqon_icons.ttf' , ttf,
+      'defqon_icons.svg' , svg
+    ),
+    'defqon_icons.eot'
+  );
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "defqon_icons";
+    src: url("./defqon_icons.svg#fontcustom") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-alarm:before,
+.icon-chat:before,
+.icon-chat-02:before,
+.icon-close:before,
+.icon-movie:before,
+.icon-photo:before,
+.icon-insta:before,
+.icon-play:before,
+.icon-up:before {
+  display: inline-block;
+  font-family: "defqon_icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-alarm:before { content: "\f100"; }
+.icon-chat:before { content: "\f101"; }
+.icon-chat-02:before { content: "\f102"; }
+.icon-close:before { content: "\f103"; }
+.icon-insta:before { content: "\f109"; }
+.icon-movie:before { content: "\f104"; }
+.icon-photo:before { content: "\f105"; }
+.icon-play:before { content: "\f106"; }
+.icon-up:before { content: "\f107"; }

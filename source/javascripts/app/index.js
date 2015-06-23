@@ -142,4 +142,30 @@ module.exports = angular.module( 'defqon1.app', [] )
         });
       }
     };
-  }]);
+  }])
+  .directive('playVideoHover',function() {
+    return {
+      restrict: 'A',
+      link    : function( scope, element, attrs ) {
+        element.on('click', function( evt ) {
+
+          var el = $( evt.currentTarget );
+
+          var elState = el.data( 'player-state' );
+
+          if( elState == 'unplayed' ) {
+            el.addClass( 'played' );
+            el.data( 'player-state', 'played' );
+          }
+
+          if( elState == 'played' ) {
+            el.data( 'player-state', 'pause' );
+            el.find( 'video' )[ 0 ].pause();
+          } else {
+            el.find( 'video' )[ 0 ].play();
+          }
+
+        });
+      }
+    };
+  });

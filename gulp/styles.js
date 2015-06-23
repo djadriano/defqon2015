@@ -12,6 +12,7 @@ module.exports = function() {
       css        : 'public/stylesheets',
       sass       : 'source/stylesheets'
     }))
+    .pipe(minifyCSS())
     .pipe( gulp.dest( './public/stylesheets' ) );
 
 };

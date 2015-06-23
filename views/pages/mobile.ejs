@@ -14,10 +14,10 @@
 <main class="defqon-content" ng-controller="defqon.controller">
   <section class="defqon-player-chat">
     <div class="defqon-player">
-      <iframe src="http://www.twitch.tv/beatport/embed" frameborder="0" scrolling="no" width="100%"></iframe>
+      <!-- <iframe src="http://www.twitch.tv/beatport/embed" frameborder="0" scrolling="no" width="100%"></iframe> -->
     </div>
     <div class="defqon-chat">
-      <iframe src="http://tlk.io/defqon2015" class="" width="100%" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>
+      <!-- <iframe src="http://tlk.io/defqon2015" class="" width="100%" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe> -->
     </div>
   </section>
   <section class="defqon-feed">
@@ -42,11 +42,15 @@
           <b class="defqon-feed-list-from-name">{{item.user.username}}</b>
         </div>
         <div class="defqon-feed-list-photo" ng-class="{'is-video' : item.type == 'video'}">
-          <a href="{{item.link}}" target="_blank">
-            <figure>
-                <img ng-src="{{item.images.standard_resolution.url}}" class="defqon-instagram-feed-image-post">
-            </figure>
-          </a>
+          <figure>
+            <a href="{{item.link}}" target="_blank">
+              <img ng-src="{{item.images.standard_resolution.url}}" class="defqon-instagram-feed-image-post">
+            </a>
+          </figure>
+          <div class="defqon-feed-video-player" play-video-hover data-player-state="unplayed">
+            <video poster="{{item.images.standard_resolution.url}}" preload="none" src="{{item.videos.low_resolution.url}}"></video>
+            <div class="defqon-feed-video-player-overlay"></div>
+          </div>
           <div class="defqon-feed-list-photo-text">
             {{item.caption.text}}
           </div>

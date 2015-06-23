@@ -1,5 +1,8 @@
 @import 'compass';
 @import 'vendors/lightbox';
+@import 'vendors/normalize';
+@import 'vendors/media-queries';
+@import 'core/icons';
 
 @function rem($pixels: 0, $base: 16px) {
   $rem-size: $pixels / $base;
@@ -15,13 +18,14 @@
   }
 }
 
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: rem(16px);
-  line-height: rem(18px);
-  overflow-x: hidden;
 }
 
 #{headings()} {
@@ -38,151 +42,348 @@ figure {
   list-style: none;
 }
 
+$border-color: #ddd;
+$header-height: 10vh;
+$padding-mobile: 4%;
+$padding-desktop: 2%;
+
 .defqon-header {
   @include display-flex;
   @include align-items(center);
-  // background: #cc152a;
+  @include flex-direction(row);
   background: #3a744a;
   position: fixed;
   width: 100%;
-  left: 0;
-  top: 0;
+  height: $header-height;
   z-index: 99;
-  height: 14vh;
   padding-left: rem(20px);
-}
 
-.defqon-phb-logo {
-  margin-right: rem(20px);
-  border: 0;
-}
+  img {
+    margin-right: rem(20px);
+  }
 
-.defqon-header-nav {
-  @include translateY(-50%);
-  position: absolute;
-  right: rem(20px);
-  top: 50%;
-}
+  .defqon-header-nav {
+    @include translateY(-50%);
+    position: absolute;
+    right: rem(20px);
+    top: 50%;
+  }
 
-.defqon-header-links {
-  li {
-    display: inline-block;
-    text-transform: uppercase;
-    margin-left: rem(20px);
+  .defqon-header-links {
+    color: #fff8ee;
+    font-size: rem(24px);
 
-    a {
-      color: #fff8ee;
-      text-decoration: none;
+    li {
+      display: inline-block;
+      text-transform: uppercase;
+      margin-left: rem(20px);
+
+      a {
+        color: #fff8ee;
+        text-decoration: none;
+      }
     }
   }
 }
 
-.defqon-main {
-  width: 100%;
-  padding-top: 14vh;
+.defqon-content {
+  position: relative;
+  padding-top: $header-height;
 }
 
-.defqon-livestream-player-chat {
-  width: 100%;
+.defqon-player-chat {
+  @include display-flex;
+  @include flex-direction(row);
+  background: #eee;
   height: 50vh;
-  padding: 4%;
+  border-bottom: 1px solid $border-color;
+  width: 100%;
+  overflow: hidden;
 
-  .defqon-livestream-player {
+  .defqon-player {
+    width: 100%;
     height: 100%;
+    border-right: 1px solid $border-color;
+    padding: $padding-mobile;
 
     iframe {
       height: 100%;
     }
 
-    iframe + a {
-      display: none !important;
+    @include min-screen(rem(768px)) {
+      @include flex(0 0 70%);
+      padding: $padding-desktop;
     }
   }
 
-  @media screen and (min-width: rem(768px)) {
-    @include display-flex;
-    @include flex-direction(row);
-    padding: 2%;
+  .defqon-chat {
+    @include flex(0  0 30%);
+    height: 100%;
+    padding: $padding-mobile;
+    overflow: scroll;
+    display: none;
+
+    iframe {
+      height: 100%;
+    }
+
+    @include min-screen(rem(768px)) {
+      display: block;
+      padding: $padding-desktop;
+    }
+  }
+
+  @include min-screen(rem(768px)) {
     height: 70vh;
   }
 }
 
-.defqon-instagram-feed-container {
-  padding: 4%;
+.defqon-feed {
+  position: relative;
+  height: 30vh;
 
-  @media screen and (min-width: rem(768px)) {
-    padding: 2%;
-    padding-right: 0;
-    padding-top: 0;
-  }
-}
+  .defqon-feed-title {
+    border-bottom: 1px solid $border-color;
+    padding: $padding-mobile;
+    display: table;
+    width: 100%;
 
-.defqon-instagram-feed {
-  @extend .reset-list;
-  @include display-flex;
-  @include flex-direction(row);
-  @include flex-wrap(wrap);
+    h2 {
+      width: 50%;
+      display: table-cell;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-  li {
-    flex: 0 0 100%;
-    border-bottom: 1px solid #e9e9e9;
-  }
+    .defqon-feed-filter {
+      width: 50%;
+      display: table-cell;
+      text-align: right;
+      vertical-align: middle;
 
-  @media screen and (min-width: rem(768px)) {
-    li {
-      flex: 1 0 33%;
-      padding-right: 2%;
+      dl {
+        display: inline-block;
+
+        dt,
+        dd {
+          display: inline-block;
+          margin-left: rem(10px);
+        }
+      }
+    }
+
+    @include min-screen(rem(768px)) {
+      padding: $padding-desktop;
     }
   }
-}
 
-.defqon-instagram-feed-title {
-  margin-bottom: rem(10px);
-  color: #cc152a;
-  padding-bottom: rem(20px);
-  border-bottom: 1px solid #e9e9e9;
-  line-height: rem(28px);
-}
+  .defqon-feed-list {
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    padding: $padding-mobile;
+    overflow: hidden;
 
-.defqon-instagram-feed-image {
-  position: relative;
-}
+    li {
+      width: 100%;
+      margin-bottom: $padding-mobile;
 
-.defqon-instagram-feed-image-desc {
-  @include display-flex;
-  @include flex-direction(row);
-  @include align-items(center);
-  padding: rem(20px);
-  font-size: rem(16px);
-  color: #cc152a;
-  font-weight: bold;
+      .defqon-feed-list-from {
+        padding: rem(20px);
+        padding-top: 0;
 
-  > img {
-    @include border-radius(50%);
-    width: rem(60px);
-    height: rem(60px);
-    margin-right: rem(14px);
+        img {
+          @include border-radius(50%);
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: $padding-mobile;
+          width: rem(50px);
+          height: rem(50px);
+        }
+      }
+
+      .defqon-feed-list-photo {
+        figure {
+          position: relative;
+        }
+
+        img {
+          width: 100%;
+          max-width: 100%;
+          display: block;
+        }
+
+        .defqon-feed-list-photo-text {
+          padding: rem(20px) 0;
+          color: #999;
+          overflow: hidden;
+        }
+
+        .defqon-feed-video-player {
+          position: relative;
+          display: none;
+          cursor: pointer;
+
+          video {
+            display: block;
+            position: relative;
+            width: 100% !important;
+            height: 100% !important;
+          }
+
+          .defqon-feed-video-player-overlay {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: #000;
+              opacity: 0.5;
+            }
+
+            &:before {
+              @include translateY(-50%);
+              content: "\f104";
+              font-family: "defqon_icons";
+              font-size: rem(50px);
+              position: absolute;
+              top: 50%;
+              width: 100%;
+              left: 0;
+              text-align: center;
+              color: #fff;
+              z-index: 10;
+            }
+          }
+        }
+
+        &.is-video {
+          figure {
+            display: none;
+
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: #000;
+              opacity: 0.5;
+            }
+
+            &:before {
+              @include translateY(-50%);
+              content: "\f104";
+              font-family: "defqon_icons";
+              font-size: rem(50px);
+              position: absolute;
+              top: 50%;
+              width: 100%;
+              left: 0;
+              text-align: center;
+              color: #fff;
+              z-index: 10;
+            }
+          }
+
+          .defqon-feed-video-player {
+            display: block;
+
+            &.played {
+              .defqon-feed-video-player-overlay {
+                display: none;
+              }
+            }
+          }
+
+          // video {
+          //   display: block;
+
+          //   &:after {
+          //     content: '';
+          //     position: absolute;
+          //     top: 0;
+          //     left: 0;
+          //     width: 100%;
+          //     height: 100%;
+          //     background: #000;
+          //     opacity: 0.5;
+          //   }
+
+          //   &:before {
+          //     @include translateY(-50%);
+          //     content: "\f104";
+          //     font-family: "defqon_icons";
+          //     font-size: rem(50px);
+          //     position: absolute;
+          //     top: 50%;
+          //     width: 100%;
+          //     left: 0;
+          //     text-align: center;
+          //     color: #fff;
+          //     z-index: 10;
+          //   }
+
+          //   &.played {
+          //     &:after,
+          //     &:before {
+          //       display: none;
+          //     }
+          //   }
+          // }
+        }
+      }
+    }
+
+    @include min-screen(rem(768px)) {
+      padding: $padding-desktop;
+      padding-right: 0;
+
+      li {
+        // width: 48%;
+        // float: left;
+        flex: 0 0 48%;
+        margin-right: $padding-desktop;
+        margin-bottom: $padding-desktop;
+
+        .defqon-feed-list-from {
+          img {
+            margin-right: $padding-desktop;
+          }
+        }
+      }
+    }
+
+    @include min-screen(rem(1024px)) {
+      padding-right: $padding-desktop;
+
+      li {
+        // width: 32%;
+        flex: 0 0 32%;
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
   }
-}
-
-.defqon-instagram-feed-image-post {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-}
-
-.defqon-instagram-feed-image-text {
-  padding: rem(10px) rem(20px);
-  font-size: rem(14px);
-  color: #999;
-  overflow: hidden;
 }
 
 .defqon-notification-new-photo {
   position: fixed;
   display: none;
   text-align: center;
-  background: #fff;
+  background: #eee;
   color: #cc152a;
   padding: rem(20px);
   z-index: 999;
@@ -191,47 +392,17 @@ figure {
   bottom: 0;
   border-top: 1px solid #e9e9e9;
   cursor: pointer;
+  text-transform: uppercase;
 
   &.show {
     display: block;
   }
 
   .defqon-notification-counter {
-    @include border-radius(20px);
+    @include border-radius(30px);
     padding: rem(6px) rem(10px);
     background: #cc152a;
     color: #fff;
     margin-left: rem(5px);
-  }
-}
-
-.defqon-livestream-player {
-  height: 50vh;
-
-  iframe {
-    height: 100%;
-  }
-
-  @media screen and (min-width: rem(768px)) {
-    width: 70%;
-  }
-}
-
-.defqon-chat {
-  width: 30%;
-  height: 100%;
-  padding: 0 2%;
-  padding-right: 0;
-  background: #FFF;
-  display: none;
-  overflow: auto;
-
-  iframe {
-    width: 100%;
-    height: 100%;
-  }
-
-  @media screen and (min-width: rem(768px)) {
-    display: block;
   }
 }
