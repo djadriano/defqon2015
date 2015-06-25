@@ -12,7 +12,6 @@ module.exports = function() {
       insertGlobals : false,
       debug         : false
     }))
-    .pipe(uglify())
     .pipe( gulp.dest( './public/javascripts' ) );
 
 };

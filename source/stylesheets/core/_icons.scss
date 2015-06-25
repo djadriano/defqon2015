@@ -1,16 +1,18 @@
-@include font-face('defqon_icons',
-  font-files(
-      'defqon_icons.woff', woff,
-      'defqon_icons.ttf' , ttf,
-      'defqon_icons.svg' , svg
-    ),
-    'defqon_icons.eot'
-  );
+@font-face {
+  font-family: "defqon_icons";
+  src: url("../fonts/defqon_icons.eot");
+  src: url("../fonts/defqon_icons.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/defqon_icons.woff") format("woff"),
+       url("../fonts/defqon_icons.ttf") format("truetype"),
+       url("../fonts/defqon_icons.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "defqon_icons";
-    src: url("./defqon_icons.svg#fontcustom") format("svg");
+    src: url("../fonts/defqon_icons.svg#fontcustom") format("svg");
   }
 }
 

@@ -1,18 +1,11 @@
 var gulp      = require( 'gulp' ),
-  compass     = require( 'gulp-compass' ),
+  sass        = require( 'gulp-ruby-sass' ),
+  prefix      = require( 'gulp-autoprefixer' ),
   minifyCSS   = require( 'gulp-minify-css' ),
   plumber     = require( 'gulp-plumber' );
 
 module.exports = function() {
-
-  return gulp.src( './source/stylesheets/application.scss' )
-    .pipe(plumber())
-    .pipe(compass({
-      config_file: 'config.rb',
-      css        : 'public/stylesheets',
-      sass       : 'source/stylesheets'
-    }))
-    .pipe(minifyCSS())
-    .pipe( gulp.dest( './public/stylesheets' ) );
-
+  return sass('./source/stylesheets/application.scss', {style: 'compact'})
+        .pipe(prefix("last 3 versions", "> 1%", "ie 8", "ie 7"))
+        .pipe( gulp.dest( './public/stylesheets' ) );
 };

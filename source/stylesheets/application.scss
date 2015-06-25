@@ -1,4 +1,4 @@
-@import 'compass';
+// @import 'compass';
 @import 'vendors/lightbox';
 @import 'vendors/normalize';
 @import 'vendors/media-queries';
@@ -10,11 +10,13 @@
 }
 
 * {
-  @include box-sizing(border-box);
+  // @include box-sizing(border-box);
+  box-sizing: border-box;
 
   &:after,
   &:before {
-    @include box-sizing(border-box);
+    // @include box-sizing(border-box);
+    box-sizing: border-box;
   }
 }
 
@@ -28,7 +30,7 @@ body {
   font-size: rem(16px);
 }
 
-#{headings()} {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
@@ -48,9 +50,9 @@ $padding-mobile: 4%;
 $padding-desktop: 2%;
 
 .defqon-header {
-  @include display-flex;
-  @include align-items(center);
-  @include flex-direction(row);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   background: #3a744a;
   position: fixed;
   width: 100%;
@@ -63,7 +65,7 @@ $padding-desktop: 2%;
   }
 
   .defqon-header-nav {
-    @include translateY(-50%);
+    transform: translateY(-50%);
     position: absolute;
     right: rem(20px);
     top: 50%;
@@ -92,8 +94,8 @@ $padding-desktop: 2%;
 }
 
 .defqon-player-chat {
-  @include display-flex;
-  @include flex-direction(row);
+  display: flex;
+  flex-direction: row;
   background: #eee;
   height: 50vh;
   border-bottom: 1px solid $border-color;
@@ -111,13 +113,13 @@ $padding-desktop: 2%;
     }
 
     @include min-screen(rem(768px)) {
-      @include flex(0 0 70%);
+      flex: 0 0 70%;
       padding: $padding-desktop;
     }
   }
 
   .defqon-chat {
-    @include flex(0  0 30%);
+    flex: 0 0 30%;
     height: 100%;
     padding: $padding-mobile;
     overflow: scroll;
@@ -178,9 +180,9 @@ $padding-desktop: 2%;
   }
 
   .defqon-feed-list {
-    @include display-flex;
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: $padding-mobile;
     overflow: hidden;
 
@@ -193,7 +195,7 @@ $padding-desktop: 2%;
         padding-top: 0;
 
         img {
-          @include border-radius(50%);
+          border-radius: 50%;
           display: inline-block;
           vertical-align: middle;
           margin-right: $padding-mobile;
@@ -251,7 +253,7 @@ $padding-desktop: 2%;
             }
 
             &:before {
-              @include translateY(-50%);
+              transform: translateY(-50%);
               content: "\f104";
               font-family: "defqon_icons";
               font-size: rem(50px);
@@ -282,7 +284,7 @@ $padding-desktop: 2%;
             }
 
             &:before {
-              @include translateY(-50%);
+              transform: translateY(-50%);
               content: "\f104";
               font-family: "defqon_icons";
               font-size: rem(50px);
@@ -321,7 +323,7 @@ $padding-desktop: 2%;
           //   }
 
           //   &:before {
-          //     @include translateY(-50%);
+          //     transform: translateY(-50%);
           //     content: "\f104";
           //     font-family: "defqon_icons";
           //     font-size: rem(50px);
@@ -399,7 +401,7 @@ $padding-desktop: 2%;
   }
 
   .defqon-notification-counter {
-    @include border-radius(30px);
+    border-radius: 30px;
     padding: rem(6px) rem(10px);
     background: #cc152a;
     color: #fff;
