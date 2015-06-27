@@ -25,15 +25,6 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'defqon1live',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
       object_id   : 'sunrisefestival',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
@@ -44,6 +35,24 @@ module.exports = {
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
       object_id   : 'dreamfields',
+      aspect      : 'media',
+      callback_url: configs.instagram.callback_url,
+      type        : 'subscription',
+      id          : '#'
+    });
+
+    this.Instagram.subscriptions.subscribe({
+      object      : 'tag',
+      object_id   : 'kingsofcore',
+      aspect      : 'media',
+      callback_url: configs.instagram.callback_url,
+      type        : 'subscription',
+      id          : '#'
+    });
+
+    this.Instagram.subscriptions.subscribe({
+      object      : 'tag',
+      object_id   : 'bassevents',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
