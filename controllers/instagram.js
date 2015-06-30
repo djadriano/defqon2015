@@ -59,6 +59,15 @@ module.exports = {
       id          : '#'
     });
 
+    this.Instagram.subscriptions.subscribe({
+      object      : 'tag',
+      object_id   : 'qdance',
+      aspect      : 'media',
+      callback_url: configs.instagram.callback_url,
+      type        : 'subscription',
+      id          : '#'
+    });
+
   },
 
   unsubscribe: function( id ) {
