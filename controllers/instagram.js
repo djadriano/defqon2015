@@ -66,7 +66,7 @@ module.exports = {
   },
 
   getTags: function( io, socket ) {
-    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/hardstyle/media/recent?client_id=' + configs.instagram.client_id + '&callback=JSON_CALLBACK' });
+    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/qdance/media/recent?client_id=' + configs.instagram.client_id + '&callback=JSON_CALLBACK' });
   }
 
 };
