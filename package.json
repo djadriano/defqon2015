@@ -22,7 +22,8 @@
     "magnific-popup": "^1.0.0",
     "request": "^2.58.0",
     "socket.io": "^1.3.2",
-    "supervisor": "^0.6.0"
+    "supervisor": "^0.6.0",
+    "twitter": "^1.2.5"
   },
   "devDependencies": {
     "browser-sync": "^1.9.1",

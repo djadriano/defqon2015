@@ -16,7 +16,7 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'defqon1',
+      object_id   : 'hardisland',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
@@ -25,7 +25,7 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'sunrisefestival',
+      object_id   : 'ffhard15',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
@@ -34,25 +34,7 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'dreamfields',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
-      object_id   : 'kingsofcore',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
-      object_id   : 'bassevents',
+      object_id   : 'wishoutdoor',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
@@ -79,7 +61,7 @@ module.exports = {
   },
 
   getTags: function( io, socket ) {
-    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/defqon1/media/recent?client_id=' + configs.instagram.client_id + '&callback=JSON_CALLBACK' });
+    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/qdance/media/recent?client_id=' + configs.instagram.client_id + '&callback=JSON_CALLBACK' });
   }
 
 };
