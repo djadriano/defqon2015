@@ -35,5 +35,4 @@ instagram_controller.initialize( Instagram );
 
 io.on('connection', function( socket ) {
   instagram_controller.getTags( io, socket );
-  // twitter_controller.getTweets( io, socket );
 });
