@@ -61,10 +61,6 @@ module.exports = {
 
   },
 
-  unsubscribe: function( id ) {
-    this.Instagram.subscriptions.unsubscribe({ id: '18650191' });
-  },
-
   handshake: function( req, res ) {
     var handshake = this.Instagram.subscriptions.handshake( req, res );
   },
