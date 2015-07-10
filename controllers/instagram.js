@@ -16,25 +16,7 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'hardisland',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
-      object_id   : 'ffhard15',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
-      object_id   : 'wishoutdoor',
+      object_id   : 'efl15',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
@@ -50,15 +32,6 @@ module.exports = {
       id          : '#'
     });
 
-    this.Instagram.subscriptions.subscribe({
-      object      : 'tag',
-      object_id   : 'hardstyle',
-      aspect      : 'media',
-      callback_url: configs.instagram.callback_url,
-      type        : 'subscription',
-      id          : '#'
-    });
-
   },
 
   handshake: function( req, res ) {
@@ -66,7 +39,7 @@ module.exports = {
   },
 
   getTags: function( io, socket ) {
-    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/qdance/media/recent?client_id=' + configs.instagram.client_id + '&callback=JSON_CALLBACK' });
+    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/elf15/media/recent?client_id=' + configs.instagram.client_id + '&callback=JSON_CALLBACK' });
   }
 
 };
