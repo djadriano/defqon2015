@@ -16,7 +16,16 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
-      object_id   : 'elf15',
+      object_id   : 'dominator',
+      aspect      : 'media',
+      callback_url: configs.instagram.callback_url,
+      type        : 'subscription',
+      id          : '#'
+    });
+
+    this.Instagram.subscriptions.subscribe({
+      object      : 'tag',
+      object_id   : 'dominator2015',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
       type        : 'subscription',
@@ -39,7 +48,7 @@ module.exports = {
   },
 
   getTags: function( io, socket ) {
-    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/elf15/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK' });
+    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/dominator/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK' });
   }
 
 };
