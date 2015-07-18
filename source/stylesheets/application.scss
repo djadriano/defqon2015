@@ -96,6 +96,7 @@ $padding-desktop: 2%;
 .defqon-player-chat {
   display: flex;
   flex-direction: row;
+  align-items: center;
   background: #eee;
   height: 50vh;
   border-bottom: 1px solid $border-color;
@@ -107,6 +108,15 @@ $padding-desktop: 2%;
     height: 100%;
     border-right: 1px solid $border-color;
     padding: $padding-mobile;
+
+    h2 {
+      display: block;
+      margin-bottom: rem(40px);
+    }
+
+    audio {
+      width: 100%;
+    }
 
     iframe {
       height: 100%;
