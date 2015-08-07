@@ -222,8 +222,10 @@ figure { margin: 0; }
 
 .defqon-content { position: relative; padding-top: 10vh; }
 
-.defqon-player-chat { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; background: #eee; height: 50vh; border-bottom: 1px solid #ddd; width: 100%; overflow: hidden; }
+.defqon-player-chat { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; background: #eee; height: 50vh; border-bottom: 1px solid #ddd; width: 100%; overflow: hidden; }
 .defqon-player-chat .defqon-player { width: 100%; height: 100%; border-right: 1px solid #ddd; padding: 4%; }
+.defqon-player-chat .defqon-player h2 { display: block; margin-bottom: 2.5rem; }
+.defqon-player-chat .defqon-player audio { width: 100%; }
 .defqon-player-chat .defqon-player iframe { height: 100%; }
 @media screen and (min-width: 48rem) { .defqon-player-chat .defqon-player { -webkit-box-flex: 0; -webkit-flex: 0 0 70%; -ms-flex: 0 0 70%; flex: 0 0 70%; padding: 2%; } }
 .defqon-player-chat .defqon-chat { -webkit-box-flex: 0; -webkit-flex: 0 0 30%; -ms-flex: 0 0 30%; flex: 0 0 30%; height: 100%; padding: 4%; overflow: scroll; display: none; }
