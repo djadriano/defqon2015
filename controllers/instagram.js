@@ -25,6 +25,15 @@ module.exports = {
 
     this.Instagram.subscriptions.subscribe({
       object      : 'tag',
+      object_id   : 'theqontinent',
+      aspect      : 'media',
+      callback_url: configs.instagram.callback_url,
+      type        : 'subscription',
+      id          : '#'
+    });
+
+    this.Instagram.subscriptions.subscribe({
+      object      : 'tag',
       object_id   : 'bassevents',
       aspect      : 'media',
       callback_url: configs.instagram.callback_url,
@@ -66,7 +75,7 @@ module.exports = {
   },
 
   getTags: function( io, socket ) {
-    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/TheQontinent/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK' });
+    io.in( socket.id ).emit('getFeedFirstTime', { show: 'https://api.instagram.com/v1/tags/theqontinent/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK' });
   }
 
 };
