@@ -41,6 +41,15 @@ module.exports = {
       id          : '#'
     });
 
+    this.Instagram.subscriptions.subscribe({
+      object      : 'tag',
+      object_id   : 'q_dance',
+      aspect      : 'media',
+      callback_url: configs.instagram.callback_url,
+      type        : 'subscription',
+      id          : '#'
+    });
+
   },
 
   handshake: function( req, res ) {
