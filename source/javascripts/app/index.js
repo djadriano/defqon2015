@@ -5,6 +5,10 @@ module.exports = angular.module( 'defqon1.app', [] )
     return {
       getNewPhotos: function( url ) {
         return $http.jsonp( url );
+      },
+
+      getOldPhotos: function( url ) {
+        return $http.jsonp( url );
       }
     };
   }])
@@ -24,6 +28,7 @@ module.exports = angular.module( 'defqon1.app', [] )
 
     $scope.socket    = io();
     $scope.arrPhotos = [];
+    $scope.next_page;
 
     // --------------------------------------------------
     // scope methods
@@ -38,6 +43,13 @@ module.exports = angular.module( 'defqon1.app', [] )
       $rootScope.$apply(function() {
         $rootScope.thereAreNotifications = false;
         $rootScope.new_photos_counter    = 0;
+      });
+    };
+
+    $scope.getOldPhotos = function() {
+      defqonService.getOldPhotos( $scope.next_page ).then(function( response ) {
+        $scope.updatePhotos( response.data.data );
+        $scope.storeNextPage( response.data.pagination.next_url );
       });
     };
 
@@ -78,12 +90,17 @@ module.exports = angular.module( 'defqon1.app', [] )
     $scope.socket.on('getFeedFirstTime', function( data ) {
       defqonService.getNewPhotos( data.show ).then(function( response ) {
         $scope.updatePhotos( response.data.data );
+        $scope.storeNextPage( response.data.pagination.next_url );
       });
     });
 
     // --------------------------------------------------
     // helper methods
     // --------------------------------------------------
+
+    $scope.storeNextPage = function( url ) {
+      $scope.next_page = url + '&callback=JSON_CALLBACK';
+    };
 
     $scope.updatePhotos = function( photosData ) {
       $scope.arrPhotos = $scope.arrPhotos.concat( photosData );

@@ -418,3 +418,22 @@ $padding-desktop: 2%;
     margin-left: rem(5px);
   }
 }
+
+.defqon-see-more {
+  text-align: center;
+  padding: rem(40px) 0;
+
+  .defqon-see-more-btn {
+    background: red;
+    color: #fff;
+    padding: rem(10px) rem(30px);
+    border: 0;
+    text-transform: uppercase;
+    outline: 0;
+    cursor: pointer;
+
+    &:hover {
+      background: darken(#ff0000, 10%);
+    }
+  }
+}
