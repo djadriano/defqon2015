@@ -34,7 +34,16 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'hardstyle',
+            object_id: 'iamhardstyle',
+            aspect: 'media',
+            callback_url: configs.instagram.callback_url,
+            type: 'subscription',
+            id: '#'
+        });
+
+        this.Instagram.subscriptions.subscribe({
+            object: 'tag',
+            object_id: 'defqon1',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -67,7 +76,7 @@ module.exports = {
 
     getTags: function(io, socket) {
         io.in(socket.id).emit('getFeedFirstTime', {
-            show: 'https://api.instagram.com/v1/tags/dqaus15/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
+            show: 'https://api.instagram.com/v1/tags/defqon1/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
         });
     }
 
