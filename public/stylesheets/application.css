@@ -264,7 +264,7 @@ figure { margin: 0; }
   .defqon-feed .defqon-feed-list li { -webkit-box-flex: 0; -webkit-flex: 0 0 32%; -ms-flex: 0 0 32%; flex: 0 0 32%; }
   .defqon-feed .defqon-feed-list li:nth-child(3n) { margin-right: 0; } }
 @media screen and (min-width: 80rem) { .defqon-feed .defqon-feed-list { padding-right: 2%; }
-  .defqon-feed .defqon-feed-list li { -webkit-box-flex: 0; -webkit-flex: 0 0 24%; -ms-flex: 0 0 24%; flex: 0 0 24%; }
+  .defqon-feed .defqon-feed-list li { -webkit-box-flex: 0; -webkit-flex: 0 0 23%; -ms-flex: 0 0 23%; flex: 0 0 23%; }
   .defqon-feed .defqon-feed-list li:nth-child(3n) { margin-right: 2%; }
   .defqon-feed .defqon-feed-list li:nth-child(4n) { margin-right: 0; } }
 
