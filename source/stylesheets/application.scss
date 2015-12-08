@@ -388,6 +388,18 @@ $padding-desktop: 2%;
         }
       }
     }
+
+    @include min-screen(rem(1280px)) {
+      padding-right: $padding-desktop;
+
+      li {
+        flex: 0 0 24%;
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 
