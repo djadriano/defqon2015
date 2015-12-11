@@ -16,7 +16,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Qlimax',
+            object_id: 'Defqon1',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -25,7 +25,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Qlimax2015',
+            object_id: 'Defqon1CL',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -34,7 +34,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'iamhardstyle',
+            object_id: 'Defqon1BR',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -49,7 +49,7 @@ module.exports = {
 
     getTags: function(io, socket) {
         io.in(socket.id).emit('getFeedFirstTime', {
-            show: 'https://api.instagram.com/v1/tags/Qlimax/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
+            show: 'https://api.instagram.com/v1/tags/Defqon1/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
         });
     }
 
