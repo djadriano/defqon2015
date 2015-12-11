@@ -25,7 +25,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Defqon1CL',
+            object_id: 'Defqon1chile',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
