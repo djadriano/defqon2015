@@ -16,7 +16,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Defqon1',
+            object_id: 'QTomorrowlandBrasil',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -25,7 +25,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Defqon1chile',
+            object_id: 'tomorrowlandbrasil',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -34,7 +34,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Defqon1CL',
+            object_id: 'qdance',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -43,16 +43,7 @@ module.exports = {
 
         this.Instagram.subscriptions.subscribe({
             object: 'tag',
-            object_id: 'Defqon1BR',
-            aspect: 'media',
-            callback_url: configs.instagram.callback_url,
-            type: 'subscription',
-            id: '#'
-        });
-
-        this.Instagram.subscriptions.subscribe({
-            object: 'tag',
-            object_id: 'DQ1CL',
+            object_id: 'BassArena',
             aspect: 'media',
             callback_url: configs.instagram.callback_url,
             type: 'subscription',
@@ -67,7 +58,7 @@ module.exports = {
 
     getTags: function(io, socket) {
         io.in(socket.id).emit('getFeedFirstTime', {
-            show: 'https://api.instagram.com/v1/tags/Defqon1/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
+            show: 'https://api.instagram.com/v1/tags/QTomorrowlandBrasil/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
         });
     }
 
