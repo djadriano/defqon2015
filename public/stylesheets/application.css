@@ -239,6 +239,7 @@ figure { margin: 0; }
 .defqon-feed .defqon-feed-title .defqon-feed-filter { width: 50%; display: table-cell; text-align: right; vertical-align: middle; }
 .defqon-feed .defqon-feed-title .defqon-feed-filter dl { display: inline-block; }
 .defqon-feed .defqon-feed-title .defqon-feed-filter dl dt, .defqon-feed .defqon-feed-title .defqon-feed-filter dl dd { display: inline-block; margin-left: 0.625rem; }
+.defqon-feed .defqon-feed-title .defqon-feed-filter dl dd { cursor: pointer; }
 @media screen and (min-width: 48rem) { .defqon-feed .defqon-feed-title { padding: 2%; } }
 .defqon-feed .defqon-feed-list { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; padding: 4%; overflow: hidden; }
 .defqon-feed .defqon-feed-list li { width: 100%; margin-bottom: 4%; }

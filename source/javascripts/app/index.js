@@ -29,6 +29,7 @@ module.exports = angular.module( 'defqon1.app', [] )
     $scope.socket    = io();
     $scope.arrPhotos = [];
     $scope.next_page;
+    $scope.feedFilter = '';
 
     // --------------------------------------------------
     // scope methods
@@ -51,6 +52,10 @@ module.exports = angular.module( 'defqon1.app', [] )
         $scope.updatePhotos( response.data.data );
         $scope.storeNextPage( response.data.pagination.next_url );
       });
+    };
+
+    $scope.filterFeed = function( type ) {
+      $scope.feedFilter = type;
     };
 
     // --------------------------------------------------

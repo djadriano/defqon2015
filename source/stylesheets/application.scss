@@ -181,6 +181,10 @@ $padding-desktop: 2%;
           display: inline-block;
           margin-left: rem(10px);
         }
+
+        dd {
+          cursor: pointer;
+        }
       }
     }
 
