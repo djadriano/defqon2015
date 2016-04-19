@@ -58,7 +58,7 @@ module.exports = {
 
     getTags: function(io, socket) {
         io.in(socket.id).emit('getFeedFirstTime', {
-            show: 'https://api.instagram.com/v1/tags/tomorrowlandbrasil/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
+            show: 'https://api.instagram.com/v1/tags/qdance/media/recent?client_id=' + configs.instagram.client_id + '&count=50&callback=JSON_CALLBACK'
         });
     }
 
