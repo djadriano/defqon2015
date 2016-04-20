@@ -42,10 +42,16 @@ figure {
   margin: 0;
   padding: 0;
   list-style: none;
+
+  dt,
+  dd {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 $border-color: #ddd;
-$header-height: 10vh;
+$header-height: 16vh;
 $padding-mobile: 4%;
 $padding-desktop: 2%;
 
@@ -53,15 +59,17 @@ $padding-desktop: 2%;
   display: flex;
   align-items: center;
   flex-direction: row;
-  background: #3a744a;
+  background: #fff;
   position: fixed;
   width: 100%;
   height: $header-height;
   z-index: 99;
-  padding-left: rem(20px);
+  border-bottom: 1px solid $border-color;
 
   img {
     margin-right: rem(20px);
+    height: 100%;
+    max-width: 100%;
   }
 
   .defqon-header-nav {
@@ -72,17 +80,42 @@ $padding-desktop: 2%;
   }
 
   .defqon-header-links {
-    color: #fff8ee;
-    font-size: rem(24px);
+    text-align: center;
 
-    li {
+    dt {
+      display: block;
+      margin-bottom: rem(5px);
+    }
+
+    dd {
       display: inline-block;
-      text-transform: uppercase;
-      margin-left: rem(20px);
+      cursor: pointer;
+      margin: 0 rem(5px);
 
-      a {
-        color: #fff8ee;
-        text-decoration: none;
+      [class*="icon-"] {
+        font-size: rem(30px);
+        vertical-align: middle;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    @include min-screen(rem(768px)) {
+      text-align: left;
+
+      dt {
+        margin-left: rem(5px);
+      }
+
+      dd {
+        vertical-align: middle;
+
+        span {
+          display: inline-block;
+          vertical-align: middle;
+        }
       }
     }
   }

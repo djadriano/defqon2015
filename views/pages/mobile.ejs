@@ -1,18 +1,21 @@
 <% include ../partials/html_head %>
 
 <header class="defqon-header">
-  <img src="/images/logo_phb_small.png" />
-<!--   <img src="/images/defqon.svg" />
+  <img src="/images/logo-harddance.png" />
   <nav class="defqon-header-nav">
-    <ul class="defqon-header-links reset-list">
-      <li>
-        <i class="icon-alarm"></i>  <a href="http://www.defqon1.nl/wp-content/uploads/ARTISTS_SCHEMAV2.jpeg" data-lightbox="image-1" data-title="Broadcast Line-Up">Line-Up</a>
-      </li>
-    </ul>
-  </nav> -->
+    <dl class="defqon-header-links reset-list">
+      <dt>Filtre por:</dt>
+      <dd ng-click="filterFeed('image')">
+        <i class="icon-photo"></i> <span>Fotos</span>
+      </dd>
+      <dd ng-click="filterFeed('video')">
+        <i class="icon-movie"></i> <span>Vídeos</span>
+      </dd>
+    </dl>
+  </nav>
 </header>
 
-<main class="defqon-content" ng-controller="defqon.controller">
+<main class="defqon-content">
   <section class="defqon-player-chat">
     <div class="defqon-player">
 <!--       <audio autoplay="autoplay" controls="controls">
@@ -33,17 +36,6 @@
       <h2>
         <i class="icon-insta"></i> Realtime Feed
       </h2>
-      <nav class="defqon-feed-filter">
-        <dl class="reset-list">
-          <dt>Filtre por:</dt>
-          <dd ng-click="filterFeed('image')">
-            <i class="icon-photo"></i> Fotos
-          </dd>
-          <dd ng-click="filterFeed('video')">
-            <i class="icon-movie"></i> Vídeos
-          </dd>
-        </dl>
-      </nav>
     </div>
     <ul class="defqon-feed-list reset-list">
       <li ng-repeat="item in arrPhotos | orderBy:'-created_time' | filter:{ type: feedFilter }">
