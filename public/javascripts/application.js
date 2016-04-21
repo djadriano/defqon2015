@@ -26482,6 +26482,7 @@ module.exports = angular.module( 'defqon1.app', [] )
 
     $scope.filterFeed = function( type ) {
       $scope.feedFilter = type;
+      window.scrollTo( 0, 0 );
     };
 
     $scope.hasNewContentFiltered = function() {
