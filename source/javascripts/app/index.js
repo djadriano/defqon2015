@@ -58,6 +58,16 @@ module.exports = angular.module( 'defqon1.app', [] )
       $scope.feedFilter = type;
     };
 
+    $scope.hasNewContentFiltered = function() {
+      var newContentFiltered = arrCueNewPhotos.filter(function(item) {
+        return item.type == $scope.feedFilter;
+      });
+
+      if( newContentFiltered ) {
+        $scope.showMessageNewPhotos();
+      }
+    }
+
     // --------------------------------------------------
     // socket methods
     // --------------------------------------------------
@@ -76,7 +86,11 @@ module.exports = angular.module( 'defqon1.app', [] )
 
             arrCueNewPhotos.push( response.data.data[ 0 ] );
 
-            $scope.showMessageNewPhotos();
+            if( $scope.feedFilter ) {
+              $scope.hasNewContentFiltered();
+            }
+
+            // $scope.showMessageNewPhotos();
 
           } else {
             $scope.arrPhotos.push( response.data.data[ 0 ] );

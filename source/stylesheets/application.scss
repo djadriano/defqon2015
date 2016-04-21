@@ -257,7 +257,6 @@ $padding-desktop: 2%;
         }
 
         img {
-          width: 100%;
           max-width: 100%;
           display: block;
         }
@@ -426,21 +425,21 @@ $padding-desktop: 2%;
       }
     }
 
-    @include min-screen(rem(1280px)) {
-      padding-right: $padding-desktop;
+    // @include min-screen(rem(1280px)) {
+    //   padding-right: $padding-desktop;
 
-      li {
-        flex: 0 0 23%;
+    //   li {
+    //     flex: 0 0 23%;
 
-        &:nth-child(3n) {
-          margin-right: $padding-desktop;
-        }
+    //     &:nth-child(3n) {
+    //       margin-right: $padding-desktop;
+    //     }
 
-        &:nth-child(4n) {
-          margin-right: 0;
-        }
-      }
-    }
+    //     &:nth-child(4n) {
+    //       margin-right: 0;
+    //     }
+    //   }
+    // }
   }
 }
 
