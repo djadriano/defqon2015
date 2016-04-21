@@ -26514,9 +26514,9 @@ module.exports = angular.module( 'defqon1.app', [] )
 
             if( $scope.feedFilter ) {
               $scope.hasNewContentFiltered();
+            } else {
+              $scope.showMessageNewPhotos();
             }
-
-            // $scope.showMessageNewPhotos();
 
           } else {
             $scope.arrPhotos.push( response.data.data[ 0 ] );
