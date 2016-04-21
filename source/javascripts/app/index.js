@@ -63,7 +63,7 @@ module.exports = angular.module( 'defqon1.app', [] )
         return item.type == $scope.feedFilter;
       });
 
-      if( newContentFiltered ) {
+      if( newContentFiltered.length ) {
         $scope.showMessageNewPhotos();
       }
     }
@@ -86,7 +86,7 @@ module.exports = angular.module( 'defqon1.app', [] )
 
             arrCueNewPhotos.push( response.data.data[ 0 ] );
 
-            if( $scope.feedFilter ) {
+            if( $scope.feedFilter != '' ) {
               $scope.hasNewContentFiltered();
             } else {
               $scope.showMessageNewPhotos();
